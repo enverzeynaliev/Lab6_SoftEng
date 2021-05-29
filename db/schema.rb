@@ -13,22 +13,22 @@
 ActiveRecord::Schema.define(version: 2021_05_22_152425) do
 
   create_table "marks", force: :cascade do |t|
-    t.integer "post_id", null: false
+    t.integer "id", null: false
     t.integer "points"
     t.string "letter"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_marks_on_post_id"
+    t.datetime "create", precision: 6, null: false
+    t.datetime "update", precision: 6, null: false
+    t.index ["id"], name: "index_marks_on_id"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "reports", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "create", precision: 6, null: false
+    t.datetime "update", precision: 6, null: false
   end
 
-  add_foreign_key "marks", "posts"
+  add_foreign_key "marks", "reports"
 end
 
 

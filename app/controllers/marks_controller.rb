@@ -1,15 +1,15 @@
 class MarksController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
-    @mark = @post.marks.create(mark_params)
-    redirect_to post_path(@post)
+    @report = Report.find(params[:report_id])
+    @mark = @report.marks.create(mark_params)
+    redirect_to report_path(@report)
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @mark = @post.marks.find(params[:id])
+    @report = Report.find(params[:report_id])
+    @mark = @report.marks.find(params[:id])
     @mark.destroy
-    redirect_to post_path(@post)
+    redirect_to report_path(@report)
   end
 
   private def mark_params
